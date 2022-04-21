@@ -65,3 +65,16 @@ while True:
             print('\n'.join(products_data.sort(key=lambda x: x.title)))
         elif com == 2:
             print('\n'.join(products_data.sort(key=lambda x: float(x.cost) * float(x.quantity))))
+    elif com == 3:
+        search = input("Введите через пробел названия продуктов/продукта:").lower().split()
+        for i in products_data:
+            if i.title in search:
+                search.remove(i.title)
+                print(i.title, i.cost, i.quantity, i.unit_of_measure)
+                print('------------')
+        print()
+        print()
+        if search:
+            print("Не найдено:", *search)
+            print()
+            print()
