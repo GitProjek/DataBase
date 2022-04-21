@@ -78,3 +78,8 @@ while True:
             print("Не найдено:", *search)
             print()
             print()
+    elif com == 4:
+        name = input("Введите название файла с расширение: ")
+        data_file = open(name, 'wb')
+        pickle.dump(products_data, data_file)
+        data_file.close()
