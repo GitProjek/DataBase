@@ -56,3 +56,12 @@ while True:
                 new_product.quantity = quan
             new_product.unit_of_measure = input('Единица измерения').lower()
             products_data.append(new_product)
+    elif com == 2:
+        print("Введите номер типа сортировки:")
+        print('1 - Сортировка по названию')
+        print('2 - Сортировка по общей стоимости')
+        com = int(input())
+        if com == 1:
+            print('\n'.join(products_data.sort(key=lambda x: x.title)))
+        elif com == 2:
+            print('\n'.join(products_data.sort(key=lambda x: float(x.cost) * float(x.quantity))))
