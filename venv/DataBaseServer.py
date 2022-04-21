@@ -35,7 +35,6 @@ while True:
             print('3 - Количество')
             print('4 - Единица измерения')
             com = int(input())
-            print(work.title)
             if com == 1:
                 work.title = input('Введите новое название продукта:').lower()
                 print(work.title)
@@ -45,3 +44,15 @@ while True:
                 work.quantity = input('Введите количество продукта:').lower()
             elif com == 4:
                 work.unit_of_measure = input('Введите новую единицу измерения продукта:').lower()
+        if com == 2:
+            new_product = Product()
+            print("Введите следущие данные:")
+            new_product.title = input('Название:').lower()
+            cst = input('Стоимость единицы товара:').lower()
+            if cst.isdigit():
+                new_product.cost = cst
+            quan = input('Количество:').lower()
+            if quan.isdigit():
+                new_product.quantity = quan
+            new_product.unit_of_measure = input('Единица измерения').lower()
+            products_data.append(new_product)
