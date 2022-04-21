@@ -83,3 +83,9 @@ while True:
         data_file = open(name, 'wb')
         pickle.dump(products_data, data_file)
         data_file.close()
+    elif com == 5:
+        print('Выйти? Y/N')
+        if input() == 'Y':
+            with open('products.dat', '+wb') as data:
+                pickle.dump(products_data, data)
+            break
