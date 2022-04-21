@@ -62,9 +62,15 @@ while True:
         print('2 - Сортировка по общей стоимости')
         com = int(input())
         if com == 1:
-            print('\n'.join(products_data.sort(key=lambda x: x.title)))
+            products_data.sort(key=lambda x: x.title)
+            for i in products_data:
+                print(i.title, i.cost, i.quantity, i.unit_of_measure)
+                print('------------')
         elif com == 2:
-            print('\n'.join(products_data.sort(key=lambda x: float(x.cost) * float(x.quantity))))
+            products_data.sort(key=lambda x: float(x.cost) * float(x.quantity))
+            for i in products_data:
+                print(i.title, i.cost, i.quantity, i.unit_of_measure)
+                print('------------')
     elif com == 3:
         search = input("Введите через пробел названия продуктов/продукта:").lower().split()
         for i in products_data:
@@ -89,3 +95,5 @@ while True:
             with open('products.dat', '+wb') as data:
                 pickle.dump(products_data, data)
             break
+    else:
+        print("Команда не распознана")
